@@ -44,9 +44,11 @@ generateButton.addEventListener("click", async () => {
     const file = videoInput.files[0];
 
     if (!file) {
-        statusMessage.textContent = "Please choose a video first.";
-        return;
-    }
+    statusMessage.textContent = youtubeInput.value.trim()
+        ? "YouTube preview works! To generate clips, upload the video file you own or have permission to edit."
+        : "Please upload a video first.";
+    return;
+}
 
     const formData = new FormData();
     formData.append("file", file);
