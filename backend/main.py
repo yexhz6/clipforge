@@ -193,3 +193,9 @@ def home():
     if frontend.exists():
         return FileResponse(frontend)
     return {"message": "ClipForge backend is ready!"}
+    app.mount(
+    "/",
+    StaticFiles(directory="frontend"),
+    name="frontend"
+)
+    
