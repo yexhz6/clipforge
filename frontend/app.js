@@ -14,8 +14,22 @@ youtubeInput.addEventListener("input", () => {
     );
 
     if (match) {
-        statusMessage.textContent = "YouTube link recognized! ✓";
-    } else if (url) {
+    statusMessage.textContent = "YouTube link recognized! ✓";
+
+    let preview = document.getElementById("youtube-preview");
+
+    if (!preview) {
+        preview = document.createElement("iframe");
+        preview.id = "youtube-preview";
+        preview.width = "100%";
+        preview.height = "220";
+        preview.allowFullscreen = true;
+        preview.style.marginTop = "15px";
+        youtubeInput.parentElement.appendChild(preview);
+    }
+
+    preview.src = "https://www.youtube.com/embed/" + match[1];
+}else if (url) {
         statusMessage.textContent = "Please enter a valid YouTube link.";
     } else {
         statusMessage.textContent = "";
