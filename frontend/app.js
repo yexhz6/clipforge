@@ -92,3 +92,24 @@ generateButton.addEventListener("click", async () => {
         generateButton.textContent = "✦ Generate my clips";
     }
 });
+youtubeInput.addEventListener("change", () => {
+    const match = youtubeInput.value.match(
+        /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+    );
+
+    if (!match) return;
+
+    let preview = document.getElementById("youtube-preview");
+
+    if (!preview) {
+        preview = document.createElement("iframe");
+        preview.id = "youtube-preview";
+        preview.width = "100%";
+        preview.height = "220";
+        preview.allowFullscreen = true;
+        preview.style.marginTop = "15px";
+        youtubeInput.parentElement.appendChild(preview);
+    }
+
+    preview.src = "https://www.youtube.com/embed/" + match[1];
+});
