@@ -186,16 +186,14 @@ async def process_video(
             f"Video processing failed: {str(error)}"
         )
 
-
 @app.get("/")
 def home():
     frontend = Path("frontend/index.html")
-    if frontend.exists():
-        return FileResponse(frontend)
-    return {"message": "ClipForge backend is ready!"}
-    app.mount(
+    return FileResponse(frontend)
+
+
+app.mount(
     "/",
     StaticFiles(directory="frontend"),
     name="frontend"
 )
-    
