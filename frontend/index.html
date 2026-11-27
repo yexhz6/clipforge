@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#09090f">
+    <title>ClipForge — AI Video Clipper</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="logo" href="/">CLIP<span>FORGE</span></a>
+        <span class="status"><i></i> AI CLIP STUDIO</span>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="eyebrow">✦ YOUR AI VIDEO EDITOR</div>
+            <h1>Turn long videos into<br><span>viral moments.</span></h1>
+            <p>Upload a video. Let AI find the moments worth sharing.</p>
+        </section>
+
+        <section class="panel">
+            <label class="section-label">01 — UPLOAD YOUR VIDEO</label>
+            <label class="upload-box" for="video">
+                <div class="upload-icon">↑</div>
+                <strong>Tap to upload a video</strong>
+                <span>MP4, MOV, MKV or WEBM</span>
+                <input id="video" type="file" accept="video/*">
+            </label>
+            <div id="file-name">No video selected</div>
+
+            <label class="section-label settings-label">02 — CLIP SETTINGS</label>
+
+            <div class="settings">
+                <div>
+                    <label for="length">Clip length</label>
+                    <select id="length">
+                        <option value="15">15 seconds</option>
+                        <option value="20">20 seconds</option>
+                        <option value="30" selected>30 seconds</option>
+                        <option value="45">45 seconds</option>
+                        <option value="60">60 seconds</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="count">Number of clips</label>
+                    <select id="count">
+                        <option value="3" selected>3 clips</option>
+                        <option value="5">5 clips</option>
+                        <option value="10">10 clips</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="generate">✦ Generate my clips</button>
+            <div id="status-message"></div>
+        </section>
+
+        <section id="results" hidden>
+            <h2>Your clips</h2>
+            <div id="clip-list"></div>
+            <a id="download-all" class="download-all" href="#" download>
+                Download all clips
+            </a>
+        </section>
+
+        <footer>CLIPFORGE <span>•</span> CREATE SOMETHING WORTH SHARING</footer>
+    </main>
+
+    <script src="/app.js"></script>
+</body>
+</html>
