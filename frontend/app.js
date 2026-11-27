@@ -5,7 +5,22 @@ const statusMessage = document.getElementById("status-message");
 const results = document.getElementById("results");
 const clipList = document.getElementById("clip-list");
 const downloadAll = document.getElementById("download-all");
+const youtubeInput = document.getElementById("youtube-url");
 
+youtubeInput.addEventListener("input", () => {
+    const url = youtubeInput.value.trim();
+    const match = url.match(
+        /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+    );
+
+    if (match) {
+        statusMessage.textContent = "YouTube link recognized! ✓";
+    } else if (url) {
+        statusMessage.textContent = "Please enter a valid YouTube link.";
+    } else {
+        statusMessage.textContent = "";
+    }
+});
 videoInput.addEventListener("change", () => {
     const file = videoInput.files[0];
     fileName.textContent = file ? file.name : "No video selected";
